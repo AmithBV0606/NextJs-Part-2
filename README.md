@@ -45,3 +45,6 @@ Users :
 - To use it, we need to import it from "next/link".
 
 **NOTE :** `replace` attribute in `<Link>` component overrides the current history entry, instead of adding a new one.
+
+### Active Links : 
+

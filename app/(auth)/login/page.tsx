@@ -1,5 +1,5 @@
 export default function LoginPage() {
   return (
-    <div>This is a Login page!!!!</div>
+    <div className="text-4xl font-extrabold mt-6">Login page!!!!</div>
   )
 }
