@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next-Js by Codevolution : Part-2
 
-## Getting Started
+### Topics Covered : 
 
-First, run the development server:
+- Linking Component Navigation
+- Active Links
+- params and searchParams
+- Navigating Programmatically
+- Templates
+- Loading UI
+- Error Handling
+- Recovering from Errors
+- Handling Errors in Nested Routes
+- Handling Errors in Layouts
+- Handling Global Errors
+- Parallel Routes
+- Unmatched Routes
+- Conditional Routes
+- Intercepting Routes
+- Parallel Intercepting Routes
+- Route Handlers
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Navigation so far : 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- File based routing system.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Defining routes for our application's root, nested routes, dynamic routes, and catch-all routes.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- We'e been using typical URL's directly in the browser to test these routes, but that's not how real users navigae the websites.
 
-## Learn More
+Users : 
+    - Click on links
+    - get redirected after certain actions
 
-To learn more about Next.js, take a look at the following resources:
+**UI Navigation :**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<img src="./assets/Pic-1.png" />
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Linking Component Navigation : 
 
-## Deploy on Vercel
+- For cient-side navigation, Next.js gives us the `<Link>` component.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- The `<Link>` component is a React component that extends the HTML `<a>` element, and it's the primary way to navigate between routes in Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- To use it, we need to import it from "next/link".
+
+**NOTE :** `replace` attribute in `<Link>` component overrides the current history entry, instead of adding a new one.
