@@ -117,3 +117,32 @@ export default function AuthLayoutLayout({
 - We use `useRouter` hook from "next/navigation", to redirect the user programmatically.
 
 - We can also use `redirect` from "next/navigation".
+
+### Templates : 
+
+- Templates are similar to layouts in that they are also UI shared between multiple pages in your app.
+
+- Whenever a user navigates between routes sharing a template, you get a completely fresh start.
+
+    - A new template component instance is mounted.
+    - DOM elements are re-created.
+    - States are cleared.
+    - Effects are re-synchronized.
+
+- Create a template by exporting aa default React component from a template.js or template.tsx file.
+
+- Like layouts, templates needs to accept a children prop to render the nested route segment.
+
+**DEMO :** 
+
+- Inside the `(auth)/layout.tsx`, add an Input field and store the value entered in the input box inside a state variable.
+
+- Now if you checkout the auth routes, you'll see an Input box.
+
+- Type something in the input box and navigate to other pages by clicking the button below the input box.
+
+- Then you'll notice that the value entered in the input box is persisted accross the navigation. 
+
+- This happens because the layout only mounts new page content, while keeping the common elements intact. They don't re-mount the shared components, which leads to better performance.
+
+- If you don't want the value to be persisted, all we need to do is, re-name the `(auth)/layout.tsx` file into `template.tsx` 
