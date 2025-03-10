@@ -145,4 +145,24 @@ export default function AuthLayoutLayout({
 
 - This happens because the layout only mounts new page content, while keeping the common elements intact. They don't re-mount the shared components, which leads to better performance.
 
-- If you don't want the value to be persisted, all we need to do is, re-name the `(auth)/layout.tsx` file into `template.tsx` 
+- If you don't want the value to be persisted, all we need to do is, re-name the `(auth)/layout.tsx` file into `template.tsx`.
+
+### Loading UI
+
+**Special files :** `page.tsx`, `layout.tsx`, `template.tsx` and `not-found.tsx`.
+
+- `Loading.tsx` is another special file used for loading states.
+
+- This file helps us create loading states that users see while waiting for content to load in a specific route segment.
+
+- The loading states appear instantly when navigating, letting users know that the application is responsive and actively loading content.
+
+- Just create a file called as `loading.tsx` and export a React component called `Loading` which returns an `<h1>` laoding...
+
+- Behind the scenes, Next.js automatically wraps `loading.tsx` file to the `page.tsx` file and it's nested children with in a react suspense boundary.
+
+**Benefits of `loading.tsx` :**
+
+1. It gives users immediate feedback when they navigate somewhere new. This makes your app feel snappy and responsive, and users know their click actually did something.
+
+2. Next.js keeps shared layouts interactive while new content loads. Users can still use things like navigation menus or sidebars even if the main content isn't ready yet.
