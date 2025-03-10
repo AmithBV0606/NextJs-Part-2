@@ -109,3 +109,11 @@ export default function AuthLayoutLayout({
 - If you want to access the `params` and `searchParams` in a client component, use the "use" hook, which was introduces in react 19.
 
 - While `page.tsx` has access to both params and searchParams, `layout.tsx` only has access to params.
+
+### Navigating Programmatically : 
+
+<img src="./assets/Pic-2.png" />
+
+- We use `useRouter` hook from "next/navigation", to redirect the user programmatically.
+
+- We can also use `redirect` from "next/navigation".
