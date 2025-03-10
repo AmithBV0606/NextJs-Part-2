@@ -166,3 +166,61 @@ export default function AuthLayoutLayout({
 1. It gives users immediate feedback when they navigate somewhere new. This makes your app feel snappy and responsive, and users know their click actually did something.
 
 2. Next.js keeps shared layouts interactive while new content loads. Users can still use things like navigation menus or sidebars even if the main content isn't ready yet.
+
+### Error Handling : 
+
+**Special files :** `page.tsx`, `layout.tsx`, `template.tsx`,`not-found.tsx` and `Loading.tsx`.
+
+- `Error.tsx` is another special file used for error handling.
+
+- It automatically wraps route segments and their nested children in a React Error boundary.
+
+- You can create custom error UIs for specific segments using the file-system hierarchy.
+
+- It isolates errors to affected segments while keeping the rest of your app functional.
+
+- It enables you to attempt to recover from an error without requiring a full page reload.
+
+**Component Hierarchy :**
+
+<img src="./assets/Pic-3.png" />
+
+**Demo :**
+
+```js
+// Example for error handling
+function getRandomInt(count: number) {
+  return Math.floor(Math.random() * count);
+}
+
+export default async function ReviewDetails({
+  params,
+}: {
+  params: Promise<{ productId: string; reviewId: string }>;
+}) {
+  const { productId, reviewId } = await params;
+  const random = getRandomInt(2);
+
+  if (random === 1) {
+    throw new Error("Error loading review!!!");
+  }
+
+  return (
+    <div className="flex flex-col justify-center items-center h-screen w-full">
+      <h2 className="text-2xl">Details about the product</h2>
+      <p>Product {productId}</p>
+      <p>Review {reviewId}</p>
+    </div>
+  );
+}
+```
+
+- Now if you visit the route `http://localhost:3000/products/9/reviews/2` and refresh mulitple times you'll see an Error.
+
+- This Error will break our entire application in production. 
+
+- We need to handle the Error gracefully by containing them to just the affected parts, while keeping the rest of our application running. 
+
+- This can be achieved by creating a seperate file for error handling. 
+
+**NOTE :** `error.tsx` file must be a client component.
