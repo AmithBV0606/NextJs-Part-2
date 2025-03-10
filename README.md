@@ -93,3 +93,19 @@ export default function AuthLayoutLayout({
   );
 }
 ```
+
+### params and searchParams : 
+
+**For a given URL,**
+
+- `params` is a promise that resolves into an object containing dynamic route parameters (like id).
+
+- `searchParams` is a promise that resolves into an object containing query parameters (like filters and sorting).
+
+**NOTE :**
+
+- `params` and `searchParams` can be accessed inside a server component using async function and awaiting the `params` and `searchParams`.
+
+- If you want to access the `params` and `searchParams` in a client component, use the "use" hook, which was introduces in react 19.
+
+- While `page.tsx` has access to both params and searchParams, `layout.tsx` only has access to params.
