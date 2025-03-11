@@ -223,7 +223,35 @@ export default async function ReviewDetails({
 
 - This can be achieved by creating a seperate file for error handling. 
 
-**NOTE :** `error.tsx` file must be a client component.
+**Different ways of writing error.tsx file :**
+
+1. Without error props :
+```js
+"use client";
+
+export default function ErrorBoundary() {
+  return (
+    <div className="flex flex-col justify-center items-center gap-4 h-screen w-full">
+      <p className="text-2xl font-bold">Something went wrong.....!!!</p>
+    </div>
+  );
+}
+```
+
+2. With error props : 
+```js
+"use client";
+
+export default function ErrorBoundary({ error }: { error:Error }) {
+  return (
+    <div className="flex flex-col justify-center items-center gap-4 h-screen w-full">
+      <p className="text-2xl font-bold">{error.message}</p>
+    </div>
+  );
+}
+```
+
+**NOTE :** `error.tsx` file must always be a client component.
 
 ### Recovering from Errors : 
 
@@ -283,3 +311,15 @@ export default function ErrorBoundary({
 - Where you put your `error.tsx` file makes a huge difference - it determines exactly which part of your UI get affected when things go wrong.
 
 **DEMO :** Move the `error.tsx` file from `products/[productId]/reviews/[reviewId/error.tsx]`, to `products` folder and notice the difference. Then move the `error.tsx` file back to the `[reviewId]` folder. 
+
+### Handling Errors in Layouts : 
+
+- An `error.tsx` file will handle errors for all its nested child segments.
+
+- There's an interesting catch with layout.tsx component in the same segment.
+
+- The error boundary won't catch errors thrown in layout.tsx within the same segment because of how the component hierarchy works.
+
+- The layout actually sits above the error boundary in the component tree.
+
+<img src="./assets/Pic-3.png" />
