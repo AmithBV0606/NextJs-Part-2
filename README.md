@@ -336,3 +336,54 @@ export default function ErrorBoundary({
 
   - Works only in production mode.
   - Requires html and body tags to be rendered
+
+## Advanced Routing 
+
+### Parallel routes : 
+
+**What they are :**
+
+- Parallel routing is an advanced routing mechanism that lets us render multiple pages simultaneously within the same layout.
+
+**Scenario 7 :**
+<img src="./assets/Pic-4.png" />
+
+**How to set them up :**
+
+- Parallel routes in Next.js are defined using a feature known as “slots”.
+
+- Slots help organize content in a modular way.
+
+- To create a slot, we use the @folder naming convention.
+
+- Each defined slot automatically becomes a prop in its corresponding `layout.tsx` file.
+
+<img src="./assets/Pic-5.png" />
+
+**Parallel routes use cases :**
+
+- Dashbaord with multiple sections.
+- Split-view interfaces.
+- Multi-pane layouts.
+- Complex admin interfaces.
+- Or any UI where sections needs to operate independently.
+
+**Parallel routes benefits**
+
+1. Parallel routes are great for splitting a layout into managable slots(especially when different teams work on different parts)
+
+2. Independent route handling.
+
+    - Each slot in your layout, such as users, revenue, and notifications, can handle its own loading and error states.
+
+    - This granular control is particularly useful in scenarios where different sections of the page load at varying speeds or encounter unique errors.
+
+<img src="./assets/Pic-6.png" />
+
+3. Sub-navigation
+
+    - Each slot can essentially function as a mini-application, complete with its own navigation and state management.
+
+    - Users can interact with each section seperately, applying filters, sorting data or navigating through pages without affecting other parts.
+
+<img src="./assets/Pic-7 .png" />
