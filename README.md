@@ -224,3 +224,50 @@ export default async function ReviewDetails({
 - This can be achieved by creating a seperate file for error handling. 
 
 **NOTE :** `error.tsx` file must be a client component.
+
+### Recovering from Errors : 
+
+- Previously we studied about handling errors gracefully using `error.tsx`.
+
+- While some errors are serious, others might be temporary and can be fixed with a simple retry.
+
+```js
+"use client";
+
+import { useRouter } from "next/navigation";
+import { startTransition } from "react";
+
+export default function ErrorBoundary({
+  error,
+  reset,
+}: {
+  error: Error;
+  reset: () => void;
+}) {
+  const router = useRouter();
+  const reload = () => {
+    startTransition(() => {
+      router.refresh();
+      reset();
+    })
+  };
+
+  return (
+    <div className="flex flex-col justify-center items-center gap-4 h-screen w-full">
+      <p className="text-2xl font-bold">{error.message}</p>
+      <button
+        onClick={() => reload()}
+        className="bg-white py-2 px-4 text-black font-bold rounded-[5px] cursor-pointer"
+      >
+        Try again
+      </button>
+    </div>
+  );
+}
+```
+
+- `Try again` button gives users a way to retry rendering the component in `page.tsx`.
+
+- `reset()` method attempts to re-render client side. So converting `[reviewId]/page.tsx` into a client component would be a overkill.
+
+- To attempt to server side recovery, we need to rely on `useRouter` and `startTransition` from react.
