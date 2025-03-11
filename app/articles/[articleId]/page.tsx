@@ -1,7 +1,7 @@
 // "use client"
 
 import Link from "next/link";
-import { use } from "react";
+// import { use } from "react";
 
 type NewsArticleProps = {
   params: Promise<{ articleId: string }>;

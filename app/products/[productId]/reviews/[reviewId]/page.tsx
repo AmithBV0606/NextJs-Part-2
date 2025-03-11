@@ -1,9 +1,10 @@
-import { notFound, redirect } from "next/navigation";
+// import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 // Example for error handling
-function getRandomInt(count: number) {
-  return Math.floor(Math.random() * count);
-}
+// function getRandomInt(count: number) {
+//   return Math.floor(Math.random() * count);
+// }
 
 export default async function ReviewDetails({
   params,

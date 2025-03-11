@@ -323,3 +323,16 @@ export default function ErrorBoundary({
 - The layout actually sits above the error boundary in the component tree.
 
 <img src="./assets/Pic-3.png" />
+
+### Handling Global Errors : 
+
+- If an error boundary can't catch errors in the `layout.tsx` file from the same segment, what about errors in the root layout?
+
+- It doesn't have a parent segment - how do we handle those errors?
+
+- Next.js provides a special file called `global-error.tsx` that goes in your root app directory.
+
+- This is your last line of defense when something goes catastrophically wrong at the highest level of your app.
+
+  - Works only in production mode.
+  - Requires html and body tags to be rendered
