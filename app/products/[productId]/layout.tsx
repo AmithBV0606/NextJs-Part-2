@@ -8,7 +8,7 @@ export default function ProductDetailsLayout({
   return (
     <>
       {children}
-      <h2 className="text-white">Featured products!!</h2>
+      <h2 className="text-white text-4xl font-bold text-center">Featured products!!</h2>
     </>
   );
 }

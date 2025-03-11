@@ -271,3 +271,15 @@ export default function ErrorBoundary({
 - `reset()` method attempts to re-render client side. So converting `[reviewId]/page.tsx` into a client component would be a overkill.
 
 - To attempt to server side recovery, we need to rely on `useRouter` and `startTransition` from react.
+
+### Handling Errors in Nested Routes : 
+
+- Errors always bubble up to find the closest parent error boundary.
+
+- An `error.tsx` file handles errors not just for its own folder, but for all the nested child segments below it too
+
+- By strategically placing `error.tsx` files at different levels in your route folders, you can control exactly how detailed your error handling gets.
+
+- Where you put your `error.tsx` file makes a huge difference - it determines exactly which part of your UI get affected when things go wrong.
+
+**DEMO :** Move the `error.tsx` file from `products/[productId]/reviews/[reviewId/error.tsx]`, to `products` folder and notice the difference. Then move the `error.tsx` file back to the `[reviewId]` folder. 
