@@ -337,9 +337,9 @@ export default function ErrorBoundary({
   - Works only in production mode.
   - Requires html and body tags to be rendered
 
-## Advanced Routing 
+## Advanced Routing Patterns
 
-### Parallel routes : 
+### 1. Parallel routes : 
 
 **What they are :**
 
@@ -411,3 +411,26 @@ export default function ErrorBoundary({
 - You might want to display a dashboard for authenticated users but show a login page for those who aren't.
 
 - Conditional routes allow us to achieve this while maintaining completely seperate code on the same URL.
+
+### 2. Intercepting routes : 
+
+**Core Concepts and Conventions :**
+
+- Intercepting routes is an advanced routing mechanism the allows you to load a route from another part of your application within the current layout.
+
+- It's particularly useful when you want to display new content while keeping your user in the same context.
+
+**Examples :**
+
+<img src="./assets/Pic-8.png" />
+<img src="./assets/Pic-9.png" />
+
+**Coneventions :**
+
+- (.) to match segments on the same level.
+
+- (..) to match the segments that are one level above.
+
+- (..)(..) to match the segments two levels above.
+
+- (...) to match segments from the root app directory.
