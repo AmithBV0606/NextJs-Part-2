@@ -386,4 +386,20 @@ export default function ErrorBoundary({
 
     - Users can interact with each section seperately, applying filters, sorting data or navigating through pages without affecting other parts.
 
-<img src="./assets/Pic-7 .png" />
+<img src="./assets/Pic-7.png" />
+
+### Unmatched Routes : 
+
+**Navigation from the UI :**
+
+- When navigating through the UI (like clicking links), Next.js keeps showing whatever was in the unmatched slots before
+
+**Page reload :**
+
+- Next.js looks for a default.tsx file in each unmatched slot
+
+- This file is critical as it serves as a fallback to render content when the framework cannot retrieve a slot's active state from the current URL
+
+- Without the file, you'll get a 404 error.
+
+**NOTE :** `default.tsx` can mirror the content from `page.tsx` or show something completely different.
