@@ -403,3 +403,11 @@ export default function ErrorBoundary({
 - Without the file, you'll get a 404 error.
 
 **NOTE :** `default.tsx` can mirror the content from `page.tsx` or show something completely different.
+
+### Conditional Routes : 
+
+- Imagine you want to show different content based on whether a user is logged in or not.
+
+- You might want to display a dashboard for authenticated users but show a login page for those who aren't.
+
+- Conditional routes allow us to achieve this while maintaining completely seperate code on the same URL.
