@@ -400,7 +400,7 @@ export default function ErrorBoundary({
 
 - This file is critical as it serves as a fallback to render content when the framework cannot retrieve a slot's active state from the current URL
 
-- Without the file, you'll get a 404 error.
+- Without the file, you'll get a 404 error, when the page is reloaded.
 
 **NOTE :** `default.tsx` can mirror the content from `page.tsx` or show something completely different.
 
@@ -434,3 +434,9 @@ export default function ErrorBoundary({
 - (..)(..) to match the segments two levels above.
 
 - (...) to match segments from the root app directory.
+
+### 3. Parallel Intercepting Routes : 
+
+- Combining the parallel routing with the intercepting routes.
+
+- Refer photo-feed folder for more information.
